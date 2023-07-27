@@ -1,0 +1,14 @@
+@mixin rotate {
+  transition: transform .3s ease-out;
+  &:hover {
+    transform: rotateZ(-360deg);
+  }
+}
+
+@mixin user-select {
+  -moz-user-select: none; /* 火狐 */
+  -webkit-user-select: none; /* webkit浏览器 */
+  -ms-user-select: none; /* IE10 */
+  -khtml-user-select: none; /* 早期浏览器 */
+  user-select: none;
+}
