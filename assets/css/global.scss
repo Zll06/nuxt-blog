@@ -6,6 +6,7 @@ html,
   padding: 0;
   height: 100%;
   width: 100%;
+  font-family: 'open-sans-regular', sans-serif;
 }
 
 .page-enter-active,
@@ -54,4 +55,11 @@ html,
   padding: 40px 15px;
   display: flex;
   max-width: 1200px;
+}
+
+code {
+  padding: 0 .5em;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  border-radius: 5px;
 }
