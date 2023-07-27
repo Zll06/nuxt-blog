@@ -98,6 +98,10 @@ export default {
     .content-left {
       width: 74%;
       ::v-deep .el-card {
+        @include scale;
+        &:hover {
+          box-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);
+        }
         .el-card__body {
           padding: 0;
         }
@@ -108,6 +112,7 @@ export default {
         .card-left {
           height: 100%;
           width: 42%;
+          overflow: hidden;
           .card-left-img {
             height: 100%;
             width: 100%;
