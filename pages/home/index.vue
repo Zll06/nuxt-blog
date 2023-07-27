@@ -14,7 +14,15 @@
     <div class="content-body">
       <div class="content-left">
         <el-card>
-          2222
+          <div class="card-item">
+            <div class="card-left">
+              <el-image class="card-left-img" :src="require('@/static/common/butterfly-docs-03-cover.png')" />
+            </div>
+            <div class="card-right">
+              <span class="card-right-title">Butterfly 安裝文檔(三) 主題配置-1</span>
+              <span class="card-right-description">📖 本教程更新於 2023 年 06 月 06 日，教程的內容針對最新穩定版而更新（如果你是舊版，教程會有些出入，請留意） 🦋 Butterfly 已經更新到 4.9.0 📚 文檔目錄 🚀 快速開始 - 📑 主題頁面 - 📌 主題配置-1 - ⚔️ 主題配置-2 - ❓ 主題問答 - ⚡️ 進階教程 - ✨ 更新日誌 - 🤞 打賞 你可以通過右下角的 簡 按鈕切換為簡體顯示 語言修改站點配置文件 _config.yml 默認語言是 en 主題支持三種語言 default(en) zh-CN (簡體中文) zh-TW (繁體中文) 網站資料修改網站各種資料，例如標題、副標題和郵箱等個人資料，請修改博客根目錄的_config.yml 導航欄設置 (Navigation bar settings)參數設置主題配置文件中 1234nav: logo: #image display_title: true fixed: false # fixed navigation bar 參數 解釋 logo 網站的 logo，支持圖片，直接填 ...</span>
+            </div>
+          </div>
         </el-card>
       </div>
       <div class="content-right">
@@ -32,7 +40,7 @@
               </div>
             </template>
           </div>
-          <el-button class="jump-btn" type="primary">
+          <el-button class="jump-btn" type="primary" @click="jumpGitHub">
             GitHub
           </el-button>
         </el-card>
@@ -67,7 +75,10 @@ export default {
     }
   },
   methods: {
-
+    //跳转github
+    jumpGitHub() {
+      window.open("https://github.com/Zll06/nuxt-blog")
+    }
   },
   mounted() {
 
@@ -77,6 +88,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/css/animation.scss";
+@import "@/assets/css/mixin.scss";
 .home-body {
   .content-body {
     margin: 0 auto;
@@ -85,6 +97,44 @@ export default {
     max-width: 1200px;
     .content-left {
       width: 74%;
+      ::v-deep .el-card {
+        .el-card__body {
+          padding: 0;
+        }
+      }
+      .card-item {
+        height: 16.8em;
+        display: flex;
+        .card-left {
+          height: 100%;
+          width: 42%;
+          .card-left-img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .card-right {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0 40px;
+          .card-right-title {
+            font-size: 1.55em;
+            line-height: 1.4;
+          }
+          .card-right-description {
+            font-size: 14px;
+            color: #4c4948;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            margin-top: 6px;
+          }
+        }
+      }
     }
     .content-right {
       width: 26%;

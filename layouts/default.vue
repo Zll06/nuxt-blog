@@ -86,6 +86,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/css/animation.scss";
+@import "@/assets/css/mixin.scss";
 .layout-body {
   height: 100%;
   display: flex;
@@ -98,7 +100,7 @@ export default {
     right: 10px;
     width: 100%;
     background: rgba(0, 0, 0 ,0);
-    transition: all .2s;
+    transition: all .5s;
   }
   ::v-deep .el-menu {
     border-bottom: none;
@@ -130,21 +132,12 @@ export default {
   .nav-fixed {
     position: fixed;
     top: -41px;
+    @include menu-text;
   }
   .nav-fixed-top {
     position: fixed;
-    background: rgba(255,255,255,.8);
-    color: #4c4948;
     top: 0;
-    .el-menu {
-      .el-menu-item {
-        color: #4c4948;
-        &.is-active {
-          color: #4c4948 !important;
-          border-color: #4c4948 !important;
-        }
-      }
-    }
+    @include menu-text;
   }
 }
 </style>

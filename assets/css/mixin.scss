@@ -1,0 +1,21 @@
+@mixin menu-text {
+  background: rgba(255,255,255,.8);
+  color: #4c4948;
+  .el-menu {
+    .el-menu-item {
+      color: #4c4948;
+      &.is-active {
+        color: #4c4948 !important;
+        border-color: #4c4948 !important;
+      }
+    }
+  }
+}
+
+@mixin user-select {
+  -moz-user-select: none; /* 火狐 */
+  -webkit-user-select: none; /* webkit浏览器 */
+  -ms-user-select: none; /* IE10 */
+  -khtml-user-select: none; /* 早期浏览器 */
+  user-select: none;
+}
