@@ -81,7 +81,7 @@ export default {
     }
   },
   mounted() {
-
+    console.log(this.$store)
   }
 }
 </script>
