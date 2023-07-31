@@ -1,0 +1,18 @@
+@mixin rotate {
+  transition: transform .3s ease-out;
+  &:hover {
+    transform: rotateZ(-360deg);
+  }
+}
+
+@mixin scale {
+  transition: all .3s ease-out;
+  .card-left-img {
+    transition: transform .3s ease-out;
+  }
+  &:hover {
+    .card-left-img {
+      transform: scale(1.1);
+    }
+  }
+}
