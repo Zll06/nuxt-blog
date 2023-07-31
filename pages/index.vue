@@ -1,32 +1,30 @@
 <template>
-  <home />
+  <home :blog-list="blogList" />
 </template>
 
 <script>
-import Home from "~/pages/home";
-// import apiReq from "~/api/httpUtils";
-// import {apiHome} from "@/constant/apiConstant/apiHome";
-// const {getWithQuery} = require("@/api/httpUtils")
-// const {apiHome} = require("@/constant/apiConstant/apiHome")
+import Home from '~/pages/home'
+import { apiConstant } from '~/constant/apiConstant'
+import { getWithQuery } from '~/api/httpUtils'
 
 export default {
   name: 'IndexPage',
-  components: {Home},
+  components: { Home },
   data() {
     return {
-      //博客
-      blogList: []
+      //博客列表
+      blogList: [],
     }
   },
-  mounted() {
-    // console.log(apiReq)
-    console.log(this.title);
+  created() {},
+  async asyncData({ $axios }) {
+    const res = await getWithQuery($axios, apiConstant.getArticleList).catch(
+      (err) => {
+        console.log(err)
+        return Promise.resolve({ data: [] })
+      }
+    )
+    return { blogList: res.data }
   },
-  // asyncData(data, callback) {
-    // return getWithQuery(apiHome.getArticleList)
-    //   .then(res => {
-    //     console.log(res)
-    //   })
-  // }
 }
 </script>

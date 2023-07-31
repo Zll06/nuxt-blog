@@ -13,17 +13,19 @@
     <div class="bg-class"></div>
     <div class="content-body">
       <div class="content-left">
-        <el-card>
-          <div class="card-item">
-            <div class="card-left">
-              <el-image class="card-left-img" :src="require('@/static/common/butterfly-docs-03-cover.png')" />
+        <template v-for="item in blogList">
+          <el-card :key="item._id">
+            <div class="card-item">
+              <div class="card-left">
+                <el-image class="card-left-img" :src="require('@/static/common/butterfly-docs-03-cover.png')" />
+              </div>
+              <div class="card-right">
+                <span class="card-right-title">{{item.title}}</span>
+                <span class="card-right-description">📖 本教程更新於 2023 年 06 月 06 日，教程的內容針對最新穩定版而更新（如果你是舊版，教程會有些出入，請留意） 🦋 Butterfly 已經更新到 4.9.0 📚 文檔目錄 🚀 快速開始 - 📑 主題頁面 - 📌 主題配置-1 - ⚔️ 主題配置-2 - ❓ 主題問答 - ⚡️ 進階教程 - ✨ 更新日誌 - 🤞 打賞 你可以通過右下角的 簡 按鈕切換為簡體顯示 語言修改站點配置文件 _config.yml 默認語言是 en 主題支持三種語言 default(en) zh-CN (簡體中文) zh-TW (繁體中文) 網站資料修改網站各種資料，例如標題、副標題和郵箱等個人資料，請修改博客根目錄的_config.yml 導航欄設置 (Navigation bar settings)參數設置主題配置文件中 1234nav: logo: #image display_title: true fixed: false # fixed navigation bar 參數 解釋 logo 網站的 logo，支持圖片，直接填 ...</span>
+              </div>
             </div>
-            <div class="card-right">
-              <span class="card-right-title">Butterfly 安裝文檔(三) 主題配置-1</span>
-              <span class="card-right-description">📖 本教程更新於 2023 年 06 月 06 日，教程的內容針對最新穩定版而更新（如果你是舊版，教程會有些出入，請留意） 🦋 Butterfly 已經更新到 4.9.0 📚 文檔目錄 🚀 快速開始 - 📑 主題頁面 - 📌 主題配置-1 - ⚔️ 主題配置-2 - ❓ 主題問答 - ⚡️ 進階教程 - ✨ 更新日誌 - 🤞 打賞 你可以通過右下角的 簡 按鈕切換為簡體顯示 語言修改站點配置文件 _config.yml 默認語言是 en 主題支持三種語言 default(en) zh-CN (簡體中文) zh-TW (繁體中文) 網站資料修改網站各種資料，例如標題、副標題和郵箱等個人資料，請修改博客根目錄的_config.yml 導航欄設置 (Navigation bar settings)參數設置主題配置文件中 1234nav: logo: #image display_title: true fixed: false # fixed navigation bar 參數 解釋 logo 網站的 logo，支持圖片，直接填 ...</span>
-            </div>
-          </div>
-        </el-card>
+          </el-card>
+        </template>
       </div>
       <div class="content-right">
         <el-card class="author-card">
@@ -50,8 +52,19 @@
 </template>
 
 <script>
+// import {getWithQuery, postJson} from "~/api/httpUtils";
+
 export default {
   name: "index.vue",
+  props: {
+    //博客文章列表
+    blogList: {
+      type: Array,
+      default: function () {
+        return []
+      }
+    }
+  },
   data() {
     return {
       //tab页的按钮列表
@@ -81,7 +94,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$store)
+    // getWithQuery("/api/getArticleList")
   }
 }
 </script>

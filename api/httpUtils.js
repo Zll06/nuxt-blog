@@ -1,13 +1,13 @@
-import service from "@/api/request";
-
-export function getWithQuery(url, query = {}) {
-  return service.get(url, {
+export function getWithQuery($axios, url, query = {}) {
+  return $axios.get(url, {
     params: query,
   })
 }
 
-export function postJson(url, data = {}) {
-  return service.post(url, {
-    data
-  })
-}
+
+
+// export function postJson(url, data = {}) {
+//   return service.post(url, {
+//     data
+//   })
+// }

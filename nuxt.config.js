@@ -22,7 +22,12 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/element-ui',
+    "@/api/request.js",
+    "@/constant/apiConstant.js",
+    "@/api/httpUtils.js"
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -33,13 +38,20 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    "@nuxtjs/proxy"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true,
+  },
+
+  proxy: {
+    "/api": {
+      target: 'http://10.100.33.70:8710',
+      changeOrigin: true
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
