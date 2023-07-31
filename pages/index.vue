@@ -16,7 +16,9 @@ export default {
       blogList: [],
     }
   },
-  created() {},
+  mounted() {
+    console.log(process.env)
+  },
   async asyncData({ $axios }) {
     const res = await getWithQuery($axios, apiConstant.getArticleList).catch(
       (err) => {

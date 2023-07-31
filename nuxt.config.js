@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -39,7 +41,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    "@nuxtjs/proxy"
+    "@nuxtjs/proxy",
+    ['@nuxtjs/dotenv', { filename: `.env.${process.env.BASE}` }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -49,9 +52,13 @@ export default {
 
   proxy: {
     "/api": {
-      target: 'http://10.100.33.70:8710',
+      target: 'http://localhost:8710',
       changeOrigin: true
     }
+  },
+
+  env: {
+    ...process.env
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
