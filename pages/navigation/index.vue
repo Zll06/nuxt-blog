@@ -10,7 +10,7 @@
 
 <template>
   <div>
-    <div class="bg-class"></div>
+    <div class="bg-class" />
   </div>
 </template>
 

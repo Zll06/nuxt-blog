@@ -20,7 +20,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     "@/assets/css/global.scss",
-    "@/assets/css/animation.scss"
+    "@/assets/css/animation.scss",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -42,8 +42,21 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     "@nuxtjs/proxy",
+    "@nuxtjs/markdownit",
     ['@nuxtjs/dotenv', { filename: `.env.${process.env.BASE}` }]
   ],
+
+  markdownit: {
+    runtime: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [
+      // 'markdown-it-div',
+      // 'markdown-it-attrs'
+      "markdown-it-highlightjs"
+    ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

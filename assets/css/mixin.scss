@@ -1,6 +1,7 @@
 @mixin menu-text {
   background: rgba(255,255,255,.8);
   color: #4c4948;
+  box-shadow: 0 5px 6px -5px rgba(133,133,133,.6);
   .el-menu {
     .el-menu-item {
       color: #4c4948;
