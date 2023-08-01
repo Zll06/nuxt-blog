@@ -9,14 +9,15 @@
 -->
 
 <template>
-  <div>
+  <div >
     <div class="bg-class" />
-    <div v-html="mdFile"></div>
+    <el-card class="content-body">
+      <div v-html="$md.render(mdFile)" />
+    </el-card>
   </div>
 </template>
 
 <script>
-import md from "~/static/nuxt.js服务器端渲染分享.md"
 import {apiConstant} from "@/constant/apiConstant";
 import {getWithQuery} from "@/api/httpUtils";
 
@@ -24,7 +25,6 @@ export default {
   name: "articleHome",
   data() {
     return {
-      md,
       //md文件
       mdFile: null
     }
@@ -41,5 +41,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.content-body {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 </style>

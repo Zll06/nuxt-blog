@@ -48,3 +48,10 @@ html,
 .layout-body {
   scroll-behavior: smooth;
 }
+
+.content-body {
+  margin: 0 auto;
+  padding: 40px 15px;
+  display: flex;
+  max-width: 1200px;
+}
