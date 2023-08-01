@@ -30,8 +30,7 @@
 </template>
 
 <script>
-import {getRoute} from "~/utils";
-import {reasonTypeReturnData} from "../utils";
+import {getRoute, reasonTypeReturnData} from "~/utils";
 
 export default {
   name: "index",
@@ -43,7 +42,7 @@ export default {
       routeList: [
         {
           name: "首页",
-          path: "/"
+          path: "/home"
         },
         {
           name: "导航站",
