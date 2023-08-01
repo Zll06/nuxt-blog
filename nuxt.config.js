@@ -42,8 +42,20 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     "@nuxtjs/proxy",
+    "@nuxtjs/markdownit",
     ['@nuxtjs/dotenv', { filename: `.env.${process.env.BASE}` }]
   ],
+
+  markdownit: {
+    runtime: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [
+      // 'markdown-it-div',
+      // 'markdown-it-attrs'
+    ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

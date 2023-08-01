@@ -9,12 +9,34 @@
 -->
 
 <template>
-  <div>222</div>
+  <div>
+    <div class="bg-class" />
+    <div v-html="mdFile"></div>
+  </div>
 </template>
 
 <script>
+import md from "~/static/nuxt.js服务器端渲染分享.md"
+import {apiConstant} from "@/constant/apiConstant";
+import {getWithQuery} from "@/api/httpUtils";
+
 export default {
-  name: "articleHome"
+  name: "articleHome",
+  data() {
+    return {
+      md,
+      //md文件
+      mdFile: null
+    }
+  },
+  async asyncData({$axios, route}) {
+    const {data} = await getWithQuery($axios, apiConstant.getArticle, {id: route.params.id})
+    const mdFile = await getWithQuery($axios, `${encodeURI(`/api${data.path}`)}`)
+      .catch(err => {
+        console.log(err)
+      });
+    return {mdFile}
+  }
 }
 </script>
 

@@ -23,6 +23,9 @@ export default function({ $axios, redirect }) {
      */
     response => {
       const res = response.data
+      if(res && !res.status) {
+        return res
+      }
       if (res.status === 200) {
         return res
       } else {
