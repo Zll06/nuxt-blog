@@ -20,7 +20,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     "@/assets/css/global.scss",
-    "@/assets/css/animation.scss"
+    "@/assets/css/animation.scss",
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -54,6 +54,7 @@ export default {
     use: [
       // 'markdown-it-div',
       // 'markdown-it-attrs'
+      "markdown-it-highlightjs"
     ]
   },
 

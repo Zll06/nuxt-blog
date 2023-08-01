@@ -100,7 +100,6 @@ export default {
     width: 100%;
     background: rgba(0, 0, 0 ,0);
     transition: all .5s;
-    box-shadow: 0 5px 6px -5px rgba(133,133,133,.6);
   }
   ::v-deep .el-menu {
     border-bottom: none;
