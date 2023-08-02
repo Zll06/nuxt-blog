@@ -44,5 +44,6 @@ export default {
 .content-body {
   margin-top: 40px;
   margin-bottom: 40px;
+  padding: 0 20px;
 }
 </style>
