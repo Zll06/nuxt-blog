@@ -1,13 +1,13 @@
 export const state = () => ({
-  count: 0
+  scrollTop: 0
 })
 
 export const mutations = {
-  addCount(state) {
-    state.count ++
+  UPDATE_SCROLL_TOP(state, data) {
+    state.scrollTop = data
   }
 }
 
 export const getters = {
-  getCount: state => state.count
+  scrollTop: state => state.scrollTop
 }

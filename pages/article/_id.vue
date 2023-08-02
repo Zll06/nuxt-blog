@@ -11,6 +11,7 @@
 <template>
   <div >
     <div class="bg-class" />
+    <span>{{ scrollTop }}</span>
     <el-card class="content-body">
       <div v-html="$md.render(mdFile)" />
     </el-card>
@@ -27,6 +28,11 @@ export default {
     return {
       //md文件
       mdFile: null
+    }
+  },
+  computed: {
+    scrollTop() {
+      return this.$store.getters.scrollTop
     }
   },
   async asyncData({$axios, route}) {

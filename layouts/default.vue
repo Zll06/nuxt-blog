@@ -65,15 +65,18 @@ export default {
     //监听页面滚动
     onBodyScroll(e) {
       const {scrollTop} = reasonTypeReturnData(e.target, "object")
-      if(scrollTop > 0) {
-        this.headerClass = "nav-fixed"
-      }
-      if(scrollTop < this.curScrollTop) {
-        this.headerClass = "nav-fixed-top"
-      }
-      this.curScrollTop = scrollTop
-      if(scrollTop === 0) {
-        this.headerClass = null
+      if(scrollTop) {
+        this.$store.commit("UPDATE_SCROLL_TOP", scrollTop)
+        if(scrollTop > 0) {
+          this.headerClass = "nav-fixed"
+        }
+        if(scrollTop < this.curScrollTop) {
+          this.headerClass = "nav-fixed-top"
+        }
+        this.curScrollTop = scrollTop
+        if(scrollTop === 0) {
+          this.headerClass = null
+        }
       }
     }
   },
