@@ -35,7 +35,6 @@ Highlight.install = function (Vue) {
     inserted: function (el) {
       let blocks = el.querySelectorAll('pre code');
       for (let i = 0; i < blocks.length; i++) {
-        console.log(blocks);
         highLightJs.highlightBlock(blocks[i]);
       }
     },

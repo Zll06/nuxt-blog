@@ -1,35 +1,35 @@
-require("dotenv").config()
+require('dotenv').config()
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-blog',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    "@/assets/css/global.scss",
-    "@/assets/css/animation.scss",
+    '@/assets/css/global.scss',
+    '@/assets/css/animation.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
-    "@/plugins/hightlight.js",
-    "@/api/request.js",
-    "@/constant/apiConstant.js",
-    "@/api/httpUtils.js"
+    '@/plugins/hightlight.js',
+    '@/api/request.js',
+    '@/constant/apiConstant.js',
+    '@/api/httpUtils.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,8 +42,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    "@nuxtjs/proxy",
-    "@nuxtjs/markdownit",
+    '@nuxtjs/proxy',
+    '@nuxtjs/markdownit',
     ['@nuxtjs/dotenv', { filename: `.env.${process.env.BASE}` }]
   ],
 
@@ -55,17 +55,18 @@ export default {
     use: [
       // 'markdown-it-div',
       // 'markdown-it-attrs'
-      "markdown-it-highlightjs"
+      'markdown-it-highlightjs',
+      "markdown-it-table"
     ]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true,
+    proxy: true
   },
 
   proxy: {
-    "/api": {
+    '/api': {
       target: 'http://localhost:8710',
       changeOrigin: true
     }
@@ -77,6 +78,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [/^element-ui/],
-  },
+    transpile: [/^element-ui/]
+  }
 }

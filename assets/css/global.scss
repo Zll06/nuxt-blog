@@ -1,3 +1,5 @@
+@import "./variables";
+
 body,
 html,
 #__nuxt,
@@ -32,18 +34,18 @@ html,
 //定义滚动条轨道 内阴影+圆角
 ::-webkit-scrollbar-track {
   border-radius: 1em;
-  background-color: rgba(50,50,50,.1);
+  background-color: rgba(50, 50, 50, 0.1);
 }
 
 .bg-class {
   background-attachment: fixed;
-  background-image: url("~static/common/index.jpg");
+  background-image: url('~static/common/index.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   width: 100%;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .layout-body {
@@ -58,8 +60,19 @@ html,
 }
 
 code {
-  padding: 0 .5em;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  padding: 0 0.5em;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+}
+
+a {
+  color: #2d2e2f;
+  outline: none;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  &:hover {
+    color: $--color-primary;
+  }
 }

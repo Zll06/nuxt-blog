@@ -18,7 +18,9 @@
       >
         <template v-for="item in routeList">
           <el-menu-item :index="item.path">
-            <nuxt-link :to="item.path" :key="item.path">{{item.name}}</nuxt-link>
+            <nuxt-link :to="item.path" :key="item.path">{{
+              item.name
+            }}</nuxt-link>
           </el-menu-item>
         </template>
       </el-menu>
@@ -30,10 +32,11 @@
 </template>
 
 <script>
-import {getRoute, reasonTypeReturnData} from "~/utils";
+import { getRoute, isEmpty, reasonTypeReturnData } from '~/utils'
+import _ from 'lodash'
 
 export default {
-  name: "index",
+  name: 'index',
   data() {
     return {
       //默认选中的菜单
@@ -41,40 +44,40 @@ export default {
       //路由数组
       routeList: [
         {
-          name: "首页",
-          path: "/home"
+          name: '首页',
+          path: '/home',
         },
         {
-          name: "导航站",
-          path: "/navigation"
+          name: '导航站',
+          path: '/navigation',
         },
         {
-          name: "实例",
-          path: "/example"
-        }
+          name: '实例',
+          path: '/example',
+        },
       ],
       //路由实例
       route: null,
       //当前距离顶部
       curScrollTop: null,
       //header的class样式
-      headerClass: null
+      headerClass: null,
     }
   },
   methods: {
     //监听页面滚动
     onBodyScroll(e) {
-      const {scrollTop} = reasonTypeReturnData(e.target, "object")
-      if(scrollTop) {
-        this.$store.commit("UPDATE_SCROLL_TOP", scrollTop)
-        if(scrollTop > 0) {
-          this.headerClass = "nav-fixed"
+      const { scrollTop } = reasonTypeReturnData(e.target, 'object')
+      if (!isEmpty(scrollTop)) {
+        this.$store.commit('UPDATE_SCROLL_TOP', scrollTop)
+        if (scrollTop > 0) {
+          this.headerClass = 'nav-fixed'
         }
-        if(scrollTop < this.curScrollTop) {
-          this.headerClass = "nav-fixed-top"
+        if (scrollTop < this.curScrollTop) {
+          this.headerClass = 'nav-fixed-top'
         }
         this.curScrollTop = scrollTop
-        if(scrollTop === 0) {
+        if (scrollTop === 0) {
           this.headerClass = null
         }
       }
@@ -83,13 +86,13 @@ export default {
   mounted() {
     this.route = getRoute()
     this.defaultIndex = this.route.path
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/animation.scss";
-@import "@/assets/css/mixin.scss";
+@import '@/assets/css/animation.scss';
+@import '@/assets/css/mixin.scss';
 .layout-body {
   height: 100%;
   display: flex;
@@ -101,18 +104,18 @@ export default {
     top: 0;
     right: 10px;
     width: 100%;
-    background: rgba(0, 0, 0 ,0);
-    transition: all .5s;
+    background: rgba(0, 0, 0, 0);
+    transition: all 0.5s;
   }
   ::v-deep .el-menu {
     border-bottom: none;
     display: flex;
     justify-content: flex-end;
-    background: rgba(0, 0, 0 ,0);
+    background: rgba(0, 0, 0, 0);
     .el-menu-item:not(.is-disabled) {
       &:hover,
       &:focus {
-        background: rgba(0, 0, 0 ,0) !important;
+        background: rgba(0, 0, 0, 0) !important;
       }
     }
     .el-menu-item {
